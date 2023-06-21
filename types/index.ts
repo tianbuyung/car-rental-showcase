@@ -10,10 +10,10 @@ export interface CustomButtonProps {
   isDisabled?: boolean;
 }
 
-export interface SearchManufacturerProps {
-  manufacturer: string;
-  setManufacturer: (manufacturer: string) => void;
-}
+// export interface SearchManufacturerProps {
+//   manufacturer: string;
+//   setManufacturer: (manufacturer: string) => void;
+// }
 
 export interface CarProps {
   city_mpg: number;
@@ -43,12 +43,39 @@ export interface OptionProps {
   value: string;
 }
 
-export interface CustomFilterProps {
-  title: string;
+// export interface CustomFilterProps {
+//   title: string;
+//   options: OptionProps[];
+// }
+
+// export interface ShowMoreProps {
+//   pageNumber: number;
+//   isNext: boolean;
+// }
+
+export interface HomeProps {
+  searchParams: FilterProps;
+}
+
+export type CarState = CarProps[] & { message?: string };
+
+export interface SearchBarProps {
+  setManuFacturer: (manufacturer: string) => void;
+  setModel: (model: string) => void;
+}
+
+export interface SearchManuFacturerProps {
+  selected: string;
+  setSelected: (selected: string) => void;
+}
+
+export interface CustomFilterProps<T> {
   options: OptionProps[];
+  setFilter: (selected: T) => void;
 }
 
 export interface ShowMoreProps {
   pageNumber: number;
   isNext: boolean;
+  setLimit: (limit: number) => void;
 }
